@@ -1,6 +1,4 @@
 
-# coding: utf-8
-
 # # Face Recognition for the Happy House
 # 
 # Welcome to the first assignment of week 4! Here you will build a face recognition system. Many of the ideas presented here are from [FaceNet](https://arxiv.org/pdf/1503.03832.pdf). In lecture, we also talked about [DeepFace](https://research.fb.com/wp-content/uploads/2016/11/deepface-closing-the-gap-to-human-level-performance-in-face-verification.pdf). 
@@ -20,9 +18,7 @@
 # In this exercise, we will be using a pre-trained model which represents ConvNet activations using a "channels first" convention, as opposed to the "channels last" convention used in lecture and previous programming assignments. In other words, a batch of images will be of shape $(m, n_C, n_H, n_W)$ instead of $(m, n_H, n_W, n_C)$. Both of these conventions have a reasonable amount of traction among open-source implementations; there isn't a uniform standard yet within the deep learning community. 
 # 
 # Let's load the required packages. 
-# 
 
-# In[3]:
 
 from keras.models import Sequential
 from keras.layers import Conv2D, ZeroPadding2D, Activation, Input, concatenate
