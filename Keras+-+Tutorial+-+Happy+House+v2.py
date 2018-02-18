@@ -1,6 +1,4 @@
 
-# coding: utf-8
-
 # # Keras tutorial - the Happy House
 # 
 # Welcome to the first assignment of week 2. In this assignment, you will:
@@ -11,7 +9,7 @@
 # 
 # In this exercise, you'll work on the "Happy House" problem, which we'll explain below. Let's load the required packages and solve the problem of the Happy House!
 
-# In[4]:
+
 
 import numpy as np
 from keras import layers
