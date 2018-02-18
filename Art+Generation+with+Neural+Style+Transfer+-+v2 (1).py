@@ -6,7 +6,6 @@
 # **In this assignment, you will:**
 # - Implement the neural style transfer algorithm 
 # - Generate novel artistic images using your algorithm 
-# 
 # Most of the algorithms you've studied optimize a cost function to get a set of parameter values. In Neural Style Transfer, you'll optimize a cost function to get pixel values!
 
 
