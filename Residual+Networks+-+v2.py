@@ -2,19 +2,12 @@
 # coding: utf-8
 
 # # Residual Networks
-# 
-# Welcome to the second assignment of this week! You will learn how to build very deep convolutional networks, using Residual Networks (ResNets). In theory, very deep networks can represent very complex functions; but in practice, they are hard to train. Residual Networks, introduced by [He et al.](https://arxiv.org/pdf/1512.03385.pdf), allow you to train much deeper networks than were previously practically feasible.
-# 
-# **In this assignment, you will:**
 # - Implement the basic building blocks of ResNets. 
 # - Put together these building blocks to implement and train a state-of-the-art neural network for image classification. 
 # 
 # This assignment will be done in Keras. 
 # 
 # Before jumping into the problem, let's run the cell below to load the required packages.
-
-# In[ ]:
-
 import numpy as np
 from keras import layers
 from keras.layers import Input, Add, Dense, Activation, ZeroPadding2D, BatchNormalization, Flatten, Conv2D, AveragePooling2D, MaxPooling2D, GlobalMaxPooling2D
@@ -39,13 +32,9 @@ K.set_learning_phase(1)
 
 
 # ## 1 - The problem of very deep neural networks
-# 
-# Last week, you built your first convolutional neural network. In recent years, neural networks have become deeper, with state-of-the-art networks going from just a few layers (e.g., AlexNet) to over a hundred layers.
-# 
+# In recent years, neural networks have become deeper, with state-of-the-art networks going from just a few layers (e.g., AlexNet) to over a hundred layers.
 # The main benefit of a very deep network is that it can represent very complex functions. It can also learn features at many different levels of abstraction, from edges (at the lower layers) to very complex features (at the deeper layers). However, using a deeper network doesn't always help. A huge barrier to training them is vanishing gradients: very deep networks often have a gradient signal that goes to zero quickly, thus making gradient descent unbearably slow. More specifically, during gradient descent, as you backprop from the final layer back to the first layer, you are multiplying by the weight matrix on each step, and thus the gradient can decrease exponentially quickly to zero (or, in rare cases, grow exponentially quickly and "explode" to take very large values). 
-# 
 # During training, you might therefore see the magnitude (or norm) of the gradient for the earlier layers descrease to zero very rapidly as training proceeds: 
-
 # <img src="images/vanishing_grad_kiank.png" style="width:450px;height:220px;">
 # <caption><center> <u> <font color='purple'> **Figure 1** </u><font color='purple'>  : **Vanishing gradient** <br> The speed of learning decreases very rapidly for the early layers as the network trains </center></caption>
 # 
