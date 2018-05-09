@@ -4,10 +4,7 @@
 # # Residual Networks
 # - Implement the basic building blocks of ResNets. 
 # - Put together these building blocks to implement and train a state-of-the-art neural network for image classification. 
-# 
-# This assignment will be done in Keras. 
-# 
-# Before jumping into the problem, let's run the cell below to load the required packages.
+# let's run the cell below to load the required packages.
 import numpy as np
 from keras import layers
 from keras.layers import Input, Add, Dense, Activation, ZeroPadding2D, BatchNormalization, Flatten, Conv2D, AveragePooling2D, MaxPooling2D, GlobalMaxPooling2D
