@@ -66,12 +66,8 @@ np.set_printoptions(threshold=np.nan)
 # 
 # Run the cell below to create the model for face images.
 
-# In[4]:
-
 FRmodel = faceRecoModel(input_shape=(3, 96, 96))
 
-
-# In[5]:
 
 print("Total Params:", FRmodel.count_params())
 
