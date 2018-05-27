@@ -1,13 +1,8 @@
-
-# # Keras tutorial - the Happy House
-# 
-# Welcome to the first assignment of week 2. In this assignment, you will:
+#Image recognition using Keras
 # 1. Learn to use Keras, a high-level neural networks API (programming framework), written in Python and capable of running on top of several lower-level frameworks including TensorFlow and CNTK. 
 # 2. See how you can in a couple of hours build a deep learning algorithm.
-# 
 # Why are we using Keras? Keras was developed to enable deep learning engineers to build and experiment with different models very quickly. Just as TensorFlow is a higher-level framework than Python, Keras is an even higher-level framework and provides additional abstractions. Being able to go from idea to result with the least possible delay is key to finding good models. However, Keras is more restrictive than the lower-level frameworks, so there are some very complex models that you can implement in TensorFlow but not (without more difficulty) in Keras. That being said, Keras will work fine for many common models. 
-# 
-# In this exercise, you'll work on the "Happy House" problem, which we'll explain below. Let's load the required packages and solve the problem of the Happy House!
+#Here,we will work on the "Happy House" problem, which we'll explain below. Let's load the required packages and solve the problem of the Happy House!
 
 
 
@@ -252,8 +247,6 @@ print ("Test Accuracy = " + str(preds[1]))
 #     4. Run the code and check if the algorithm is right (0 is unhappy, 1 is happy)!
 #     
 # The training/test sets were quite similar; for example, all the pictures were taken against the same background (since a front door camera is always mounted in the same position). This makes the problem easier, but a model trained on this data may or may not work on your own data. But feel free to give it a try! 
-
-# In[14]:
 
 ### START CODE HERE ###
 img_path = 'images/my_image.jpg'
