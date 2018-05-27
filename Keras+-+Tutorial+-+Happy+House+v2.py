@@ -261,26 +261,13 @@ x = preprocess_input(x)
 print(happyModel.predict(x))
 
 
-# ## 5 - Other useful functions in Keras (Optional)
+# ## 5 - Other useful functions in Keras
 # 
 # Two other basic features of Keras that you'll find useful are:
 # - `model.summary()`: prints the details of your layers in a table with the sizes of its inputs/outputs
 # - `plot_model()`: plots your graph in a nice layout. You can even save it as ".png" using SVG() if you'd like to share it on social media ;). It is saved in "File" then "Open..." in the upper bar of the notebook.
 # 
-# Run the following code.
-
-# In[15]:
-
+# Running the following code.
 happyModel.summary()
-
-
-# In[16]:
-
 plot_model(happyModel, to_file='HappyModel.png')
 SVG(model_to_dot(happyModel).create(prog='dot', format='svg'))
-
-
-# In[ ]:
-
-
-
