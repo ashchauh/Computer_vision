@@ -2,9 +2,8 @@
 # # Deep Learning & Art: Neural Style Transfer
 # - Implement the neural style transfer algorithm 
 # - Generate novel artistic images using your algorithm 
-# Most of the algorithms you've studied optimize a cost function to get a set of parameter values. In Neural Style Transfer, you'll optimize a cost function to get pixel values!
-
-
+# Most of the algorithms you've studied optimize a cost function
+# to get a set of parameter values. In Neural Style Transfer, you'll optimize a cost function to get pixel values!
 
 import os
 import sys
@@ -22,22 +21,26 @@ get_ipython().magic('matplotlib inline')
 
 # ## 1 - Problem Statement
 # 
-# Neural Style Transfer (NST) is one of the most fun techniques in deep learning. As seen below, it merges two images, namely, a "content" image (C) and a "style" image (S), to create a "generated" image (G). The generated image G combines the "content" of the image C with the "style" of image S. 
+# Neural Style Transfer (NST) is one of the most fun techniques in deep learning.
+# As seen below, it merges two images, namely, a "content" image (C) and a "style" image (S), 
+# to create a "generated" image (G). The generated image G combines the "content" of the image C with the "style" of image S. 
 # 
-# In this example, you are going to generate an image of the Louvre museum in Paris (content image C), mixed with a painting by Claude Monet, a leader of the impressionist movement (style image S).
+# In this example, you are going to generate an image of the Louvre museum in Paris (content image C),
+# mixed with a painting by Claude Monet, a leader of the impressionist movement (style image S).
 # <img src="images/louvre_generated.png" style="width:750px;height:200px;">
 # 
 # Let's see how you can do this. 
 
 # ## 2 - Transfer Learning
 # 
-# Neural Style Transfer (NST) uses a previously trained convolutional network, and builds on top of that. The idea of using a network trained on a different task and applying it to a new task is called transfer learning. 
+# Neural Style Transfer (NST) uses a previously trained convolutional network, and builds on top of that. The idea of using
+# a network trained on a different task and applying it to a new task is called transfer learning. 
 # 
-# Following the original NST paper (https://arxiv.org/abs/1508.06576), we will use the VGG network. Specifically, we'll use VGG-19, a 19-layer version of the VGG network. This model has already been trained on the very large ImageNet database, and thus has learned to recognize a variety of low level features (at the earlier layers) and high level features (at the deeper layers). 
+# Following the original NST paper (https://arxiv.org/abs/1508.06576), we will use the VGG network. 
+# Specifically, we'll use VGG-19, a 19-layer version of the VGG network. This model has already been trained on the very large ImageNet database, and thus has learned to recognize a variety of low level features (at the earlier layers) and high level features (at the deeper layers). 
 # 
 # Run the following code to load parameters from the VGG model. This may take a few seconds. 
 
-# In[3]:
 
 model = load_vgg_model("pretrained-model/imagenet-vgg-verydeep-19.mat")
 print(model)
@@ -206,12 +209,11 @@ def gram_matrix(A):
     
     ### START CODE HERE ### (≈1 line)
     GA = tf.matmul(A, tf.transpose(A))
-    ### END CODE HERE ###
+    
     
     return GA
 
 
-# In[9]:
 
 tf.reset_default_graph()
 
@@ -273,7 +275,7 @@ def compute_layer_style_cost(a_S, a_G):
     J_style_layer -- tensor representing a scalar value, style cost defined above by equation (2)
     """
     
-    ### START CODE HERE ###
+    ######
     # Retrieve dimensions from a_G (≈1 line)
     m, n_H, n_W, n_C = a_G.get_shape().as_list()
     
@@ -293,7 +295,7 @@ def compute_layer_style_cost(a_S, a_G):
     return J_style_layer
 
 
-# In[11]:
+
 
 tf.reset_default_graph()
 
@@ -618,9 +620,9 @@ def model_nn(sess, input_image, num_iterations = 200):
     for i in range(num_iterations):
     
         # Run the session on the train_step to minimize the total cost
-        ### START CODE HERE ### (1 line)
+        ###### (1 line)
         sess.run(train_step)
-        ### END CODE HERE ###
+        ######
         
         # Compute the generated image by running the session on the current model['input']
         ### START CODE HERE ### (1 line)
@@ -645,8 +647,6 @@ def model_nn(sess, input_image, num_iterations = 200):
 
 
 # Run the following cell to generate an artistic image. It should take about 3min on CPU for every 20 iterations but you start observing attractive results after ≈140 iterations. Neural Style Transfer is generally trained using GPUs.
-
-# In[ ]:
 
 model_nn(sess, generated_image)
 
@@ -738,9 +738,3 @@ model_nn(sess, generated_image)
 # - Log0, TensorFlow Implementation of "A Neural Algorithm of Artistic Style". http://www.chioka.in/tensorflow-implementation-neural-algorithm-of-artistic-style
 # - Karen Simonyan and Andrew Zisserman (2015). Very deep convolutional networks for large-scale image recognition (https://arxiv.org/pdf/1409.1556.pdf)
 # - MatConvNet. http://www.vlfeat.org/matconvnet/pretrained/
-# 
-
-# In[ ]:
-
-
-
