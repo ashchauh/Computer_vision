@@ -92,7 +92,7 @@ K.set_learning_phase(1)
 
 # In[6]:
 
-# GRADED FUNCTION: identity_block
+# FUNCTION: identity_block
 
 def identity_block(X, f, filters, stage, block):
     """
@@ -124,7 +124,7 @@ def identity_block(X, f, filters, stage, block):
     X = BatchNormalization(axis = 3, name = bn_name_base + '2a')(X)
     X = Activation('relu')(X)
     
-    ### START CODE HERE ###
+    ###  ###
     
     # Second component of main path (≈3 lines)
     X = Conv2D(filters=F2, kernel_size=(f, f), strides=(1, 1), padding='same', name=conv_name_base + '2b', kernel_initializer=glorot_uniform(seed=0))(X)
@@ -139,7 +139,7 @@ def identity_block(X, f, filters, stage, block):
     X = Add()([X, X_shortcut])
     X = Activation('relu')(X)
     
-    ### END CODE HERE ###
+    ### ###
     
     return X
 
@@ -213,7 +213,7 @@ with tf.Session() as test:
 
 # In[8]:
 
-# GRADED FUNCTION: convolutional_block
+# FUNCTION: convolutional_block
 
 def convolutional_block(X, f, filters, stage, block, s = 2):
     """
@@ -248,7 +248,7 @@ def convolutional_block(X, f, filters, stage, block, s = 2):
     X = BatchNormalization(axis = 3, name = bn_name_base + '2a')(X)
     X = Activation('relu')(X)
     
-    ### START CODE HERE ###
+    ###  ###
 
     # Second component of main path (≈3 lines)
     X = Conv2D(filters=F2, kernel_size=(f, f), strides=(1, 1), padding='same', name=conv_name_base + '2b', kernel_initializer=glorot_uniform(seed=0))(X)
@@ -268,7 +268,7 @@ def convolutional_block(X, f, filters, stage, block, s = 2):
     X = Activation('relu')(X)
 
     
-    ### END CODE HERE ###
+    ###  ###
     
     return X
 
@@ -345,7 +345,7 @@ with tf.Session() as test:
 
 # In[10]:
 
-# GRADED FUNCTION: ResNet50
+# FUNCTION: ResNet50
 
 def ResNet50(input_shape = (64, 64, 3), classes = 6):
     """
@@ -379,7 +379,7 @@ def ResNet50(input_shape = (64, 64, 3), classes = 6):
     X = identity_block(X, 3, [64, 64, 256], stage=2, block='b')
     X = identity_block(X, 3, [64, 64, 256], stage=2, block='c')
 
-    ### START CODE HERE ###
+    ###  ###
 
     # Stage 3 (≈4 lines)
     X = convolutional_block(X, f=3, filters=[128, 128, 512], stage=3, block='a', s=2)
@@ -403,7 +403,7 @@ def ResNet50(input_shape = (64, 64, 3), classes = 6):
     # AVGPOOL (≈1 line). Use "X = AveragePooling2D(...)(X)"
     X = AveragePooling2D(pool_size=(2, 2), padding='same')(X)
 
-    ### END CODE HERE ###
+    ###  ###
 
     # output layer
     X = Flatten()(X)
@@ -530,7 +530,7 @@ print ("Test Accuracy = " + str(preds[1]))
 
 # ResNet50 is a powerful model for image classification when it is trained for an adequate number of iterations. We hope you can use what you've learnt and apply it to your own classification problem to perform state-of-the-art accuracy.
 # 
-# Congratulations on finishing this assignment! You've now implemented a state-of-the-art image classification system! 
+# You've now implemented a state-of-the-art image classification system! 
 
 # ## 4 - Test on your own image (Optional/Ungraded)
 
